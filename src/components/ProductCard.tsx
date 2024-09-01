@@ -30,7 +30,7 @@ export const ProductCard = ({ className, ...product }: ProductCard) => {
     <article className={cn('grid', className)}>
       <picture
         className={cn(
-          'overflow-clip rounded-md border-2 border-[transparent] object-cover transition-colors',
+          'w-full overflow-clip rounded-md border-2 border-[transparent] object-cover transition-colors sm:aspect-square',
           {
             'border-red': inCart
           }
@@ -67,7 +67,7 @@ export const ProductCard = ({ className, ...product }: ProductCard) => {
         <div className="flex -translate-y-1/2 justify-center">
           <button
             type="button"
-            className="group/button flex h-12 w-10/12 items-center justify-center gap-2 justify-self-center rounded-full border bg-white px-7 font-semibold transition-all hocus-visible:border-red hocus-visible:bg-red hocus-visible:text-white"
+            className="group/button flex h-12 w-10/12 items-center justify-center gap-2 justify-self-center rounded-full border border-rose-500 bg-white px-7 font-semibold transition-all hocus-visible:border-red hocus-visible:bg-red hocus-visible:text-white"
             onClick={() => addToCart(id)}
           >
             <AddToCart className="text-red group-hover/button:text-white group-focus-visible/button:text-white" />
