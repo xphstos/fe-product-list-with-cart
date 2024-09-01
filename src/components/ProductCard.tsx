@@ -39,7 +39,12 @@ export const ProductCard = ({ className, ...product }: ProductCard) => {
         <source srcSet={image.desktop} media="(min-width: 1024px)" />
         <source srcSet={image.tablet} media="(min-width: 768px)" />
         <source srcSet={image.mobile} media="(min-width: 475px)" />
-        <img src={image.tablet} alt="" role="presentation" className="w-full" />
+        <img
+          src={image.tablet}
+          alt=""
+          role="presentation"
+          className="w-full object-cover object-center sm:aspect-square"
+        />
       </picture>
       {inCart ? (
         <div className="flex h-12 w-10/12 -translate-y-1/2 items-center justify-between gap-4 justify-self-center rounded-full bg-red px-2 text-white">
