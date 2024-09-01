@@ -4,6 +4,7 @@ import priceFormat from '@/utils/priceFormat';
 import { ClassValue } from 'clsx';
 import { ComponentPropsWithoutRef } from 'react';
 import Remove from './icons/Remove';
+import { useCartStore } from '@/store';
 
 interface ProductCardInCart
   extends Omit<ComponentPropsWithoutRef<'article'>, 'className' | 'id'>,
@@ -15,7 +16,8 @@ export const ProductCardInCart = ({
   className,
   ...product
 }: ProductCardInCart) => {
-  const { name, price, quantity } = product;
+  const { name, price, quantity, id } = product;
+  const removeProduct = useCartStore((s) => s.removeProduct);
 
   return (
     <article
@@ -29,6 +31,7 @@ export const ProductCardInCart = ({
         <button
           type="button"
           className="flex aspect-square min-h-10 text-rose-300 transition-colors hocus:text-rose-900"
+          onClick={() => removeProduct(id)}
         >
           <figure className="m-auto rounded-full border-[.1em] p-[3px]">
             <Remove className="size-3" />
